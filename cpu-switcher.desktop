@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=CPU Switcher
+Comment=Switches CPU scaling governor
+Exec=/path/to/cpu-switcher.sh
+Terminal=true
+Type=Application
+Categories=Application
+Icon=/path/to/icon.png
