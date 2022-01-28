@@ -23,7 +23,7 @@ unset TEMP_SED
 #checking new cpu0 scaling governor state
 if [[ $(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor) = performance ]];then
 #changing desktop icon to performance
-sed -i "s/powersave.png/performance.svg/" /path/to/cpu-switcher.desktop
+sed -i "s/powersave.png/performance.png/" /path/to/cpu-switcher.desktop
 #printing success message
 echo 'CPU scaling governor successfully set to PERFORMANCE. Press enter to exit.'
 else
@@ -47,7 +47,7 @@ unset TEMP_SED
 #checking new cpu0 scaling governor state
 if [[ $(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor) = powersave ]];then
 #changing desktop icon to powersave
-sed -i "s/performance.svg/powersave.png/" /path/to/cpu-switcher.desktop
+sed -i "s/performance.png/powersave.png/" /path/to/cpu-switcher.desktop
 #printing success message
 echo 'CPU scaling governor successfully set to POWERSAVE. Press enter to exit.'
 else
