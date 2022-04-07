@@ -1,5 +1,5 @@
 # cpu-performance-switcher
-Linux shell script to switch CPU scaling governors from performance to powersave and vice versa.
+Linux bash script to switch CPU scaling governors from performance to powersave and vice versa.
 
 ---
 
