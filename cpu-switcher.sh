@@ -10,14 +10,14 @@ fi
 if [[ $(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor) = powersave ]];then
 #switching cpu scaling governors to performance if they are currently set to powersave
 TEMP_SED=$(sed "s/powersave/performance/" /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor)
-sudo echo "$TEMP_SED" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-sudo echo "$TEMP_SED" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
-sudo echo "$TEMP_SED" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
-sudo echo "$TEMP_SED" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
-sudo echo "$TEMP_SED" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
-sudo echo "$TEMP_SED" > /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor
-sudo echo "$TEMP_SED" > /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor
-sudo echo "$TEMP_SED" > /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor
+sudo echo "$TEMP_SED" | sudo tee /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor 1>/dev/null
+sudo echo "$TEMP_SED" | sudo tee /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor 1>/dev/null
+sudo echo "$TEMP_SED" | sudo tee /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor 1>/dev/null
+sudo echo "$TEMP_SED" | sudo tee /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor 1>/dev/null
+sudo echo "$TEMP_SED" | sudo tee /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor 1>/dev/null
+sudo echo "$TEMP_SED" | sudo tee /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor 1>/dev/null
+sudo echo "$TEMP_SED" | sudo tee /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor 1>/dev/null
+sudo echo "$TEMP_SED" | sudo tee /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor 1>/dev/null
 unset TEMP_SED
 
 #checking new cpu0 scaling governor state
@@ -34,14 +34,14 @@ else
 
 #switching cpu scaling governors to powersave if they are currently set to performance
 TEMP_SED=$(sed "s/performance/powersave/" /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor)
-sudo echo "$TEMP_SED" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-sudo echo "$TEMP_SED" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
-sudo echo "$TEMP_SED" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
-sudo echo "$TEMP_SED" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
-sudo echo "$TEMP_SED" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
-sudo echo "$TEMP_SED" > /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor
-sudo echo "$TEMP_SED" > /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor
-sudo echo "$TEMP_SED" > /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor
+sudo echo "$TEMP_SED" | sudo tee /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor 1>/dev/null
+sudo echo "$TEMP_SED" | sudo tee /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor 1>/dev/null
+sudo echo "$TEMP_SED" | sudo tee /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor 1>/dev/null
+sudo echo "$TEMP_SED" | sudo tee /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor 1>/dev/null
+sudo echo "$TEMP_SED" | sudo tee /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor 1>/dev/null
+sudo echo "$TEMP_SED" | sudo tee /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor 1>/dev/null
+sudo echo "$TEMP_SED" | sudo tee /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor 1>/dev/null
+sudo echo "$TEMP_SED" | sudo tee /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor 1>/dev/null
 unset TEMP_SED
 
 #checking new cpu0 scaling governor state
@@ -57,4 +57,4 @@ fi
 fi
 
 #setting up terminal exit on enter keypress
-read && exit
+read -r && exit
